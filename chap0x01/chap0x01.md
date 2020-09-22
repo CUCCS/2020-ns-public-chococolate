@@ -121,47 +121,45 @@ iface enp0s10 inet static
       ```
 + 编辑dnsmasq.conf配置文件
   ```
-        interface=enp0s9
-        listen-address=192.168.20.1
-        dhcp-range=192.168.20.100,192.168.20.150,255.255.255.0,240h
-        dhcp-option=3,192.168.20.1
-        interface=enp0s10
-        listen-address=192.168.30.1
-        dhcp-range=192.168.30.100,192.168.30.150,255.255.255.0,240h
-        dhcp-option=3,192.168.30.1
+        < log-queries
+        < log-facility=/var/log/dnsmasq.log
+
+        > #log-queries
+        < log-dhcp
+        > #log-dhcp
   ```
 + 重启服务及设为自启动服务：  
     `systemctl restart dnsmasq`
     `systemctl enable dnsmasq`
-     ![](images/8.png)
+     ![outcome](images/8.png)
 
 
 靶机
 + Victim-kali设为内部网络，intnet-1 
-![](images/9.png)
+![p1](images/9.png)
 + Victim-xp-1设为内部网络，intnet-1 
-![](images/12.png)
+![p2](images/12.png)
 + Victim-debian设为内部网络，intnet-2
-![](images/13.png)
+![p3](images/13.png)
 + Victim-xp-2设为内部网络，intnet-2
-![](images/10.png)
+![p4](images/10.png)
 攻击者主机设置为NAT网络模式
-![](images/11.png)
+![p5](images/11.png)
 
 ### 实验搭载成果测试
 + 网络连通性测试
 	+  靶机可以直接访问攻击者主机
-	![](images/16.png)
+	![p1](images/16.png)
 	+ 攻击者主机无法直接访问靶机
-	![](images/15.png)
+	![p2](images/15.png)
 	+ 网关可以直接访问攻击者主机和靶机
-		![](images/14.png)
-        ![](images/7.png)
+		![p3](images/14.png)
+        ![p4](images/7.png)
 	+ 靶机的所有对外上下行流量必须经过网关      
 	靶机访问互联网后，查看网关上的dnsmasq日志
-    ![](images/17.png)
+    ![p5](images/17.png)
 	+ 所有节点均可以访问互联网   
-   ![](images/18.png)
+   ![p6](images/18.png)
     (共享粘贴板没设置成功，用的微信网页版粘贴的代码，笨人有笨人的方法==)   
 
 ### 实验问题及反馈
