@@ -51,7 +51,7 @@
   
   `ip link show eth0`
  
- ![再次检查混杂模式状态](images/recheck_promisc.png)
+   ![再次检查混杂模式状态](images/recheck_promisc.png)
 
 - 回到攻击者主机上的 scapy 交互式终端继续执行命令
 
@@ -94,14 +94,14 @@
 
   `sendp(arpspoofed)`
 
-![发送伪造的 ARP 响应数据包到受害者主机](images/fake_arp.png)
+   ![发送伪造的 ARP 响应数据包到受害者主机](images/fake_arp.png)
   
 
 - 此时在受害者主机上查看 ARP 缓存，会发现网关的 MAC 地址已被「替换」为攻击者主机的 MAC 地址
 
 `ip neigh`
 
-![接受伪造ARP的受害者主机ARP缓存表](images/changed_arp.png)
+   ![接受伪造ARP的受害者主机ARP缓存表](images/changed_arp.png)
 
 回到攻击者主机上的 scapy 交互式终端继续执行命令。
 
@@ -113,7 +113,7 @@
  
     `sendp(restorepkt1, count=100, inter=0.2)`
 
-![伪造网关ARP](images/fake_gateway_arp.png)
+  ![伪造网关ARP](images/fake_gateway_arp.png)
 
 此时在受害者主机上准备“刷新”网关 ARP 记录。
 
@@ -127,11 +127,11 @@
   
   `ip neigh`
 
-![查看恢复的受害者主机ARP缓存表](images/recover_arp.png)
+   ![查看恢复的受害者主机ARP缓存表](images/recover_arp.png)
 
 ## 思考与反思
 - 实验相对简单，做完实验想尝试直接在攻击者主机命令行里利arpspoof -i eth0 -t 172.16.111.108 172.16.111.1实现一下ARP攻击不能上网，但在kali中一直报错：找不到arpspoof。但该虚拟机已装有arpspoof,应该猜测是更新问题，需要执行sudo apt-install update && sudo apt-install upgrade.但依旧没解决问题==
  
- ![arpspoof_install_wrong](images/extra_wrong.png)
+   ![arpspoof_install_wrong](images/extra_wrong.png)
 ## 参考
 - [黄药师课件](https://c4pr1c3.github.io/cuc-ns/chap0x04/exp.html)
