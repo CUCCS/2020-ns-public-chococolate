@@ -58,6 +58,7 @@
   `pkt = promiscping("172.16.111.108")`
 
  - 两次pkt结果对比
+  
    ![两次pkt结果对比](images/pkt_result_compare.png)
 
 - 在受害者主机上手动关闭该网卡的「混杂模式」
@@ -66,7 +67,9 @@
 
 ##  实验二：手工单步“毒化”目标主机的 ARP 缓存
 受害者主机初始ARP缓存信息
- ![受害者初始ARP](images/init_arp.png)
+
+   ![受害者初始ARP](images/init_arp.png)
+
 以下代码在攻击者主机上的 `scapy` 交互式终端完成
 
 
@@ -99,7 +102,7 @@
 
 - 此时在受害者主机上查看 ARP 缓存，会发现网关的 MAC 地址已被「替换」为攻击者主机的 MAC 地址
 
-`ip neigh`
+   `ip neigh`
 
    ![接受伪造ARP的受害者主机ARP缓存表](images/changed_arp.png)
 
@@ -113,7 +116,7 @@
  
     `sendp(restorepkt1, count=100, inter=0.2)`
 
-  ![伪造网关ARP](images/fake_gateway_arp.png)
+    ![伪造网关ARP](images/fake_gateway_arp.png)
 
 此时在受害者主机上准备“刷新”网关 ARP 记录。
 
