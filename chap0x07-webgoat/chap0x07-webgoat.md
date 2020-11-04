@@ -37,8 +37,10 @@
 `git submodule init && git submodule update`
 + 启动 webgoat 系列服务
 `cd owasp/webgoat/ && docker-compose up -d`
-+ 查看当前容器状态是否healthy
++ 查看当前容器状态是否healthyn
 `docker ps`
+
+![环境配置完毕！！！](images/environment.png)
 ## 实验过程
 
 ###  Authentication Flaws 认证缺陷
@@ -53,7 +55,7 @@
 
 **防御修复**
 * 设置问题的答案可能样本库要够大或设置多个问题
-* 答非所问（经常用这招~）
+* 答非所问（自己经常这样做~）
   
 
 **2-->Multi Level Login2**
@@ -83,7 +85,7 @@
 * goal：作为普通员工“tom”，利用弱访问控制来查看其他员工的个人资料。
 * solution: 使用burpsuite对viewprofile操作按钮进行抓包分析可知通过修改`employee_id`值便可以实现对其他人简历的访问。
 * reflection: 做了多组实验，发现确实只与id值有关，普通员工tom通过修改id值可以越级访问hr,manager以及admin的简历。
-* 
+ 
   ![PROCESS.img](images/break_layer_access.png)
   ![OUTCOME.img](images/break_layer_access_outcome.png)
 
@@ -115,7 +117,7 @@
 * 隐藏表单字段
 * 添加服务器端验证
 
-###  Cross-Site Scripting(XSS) 
+###  Cross-Site Scripting XSS攻击 
 **1-->Stored XSS Attacks**
 
 **实验**
@@ -196,7 +198,8 @@
 
 ## 遇到的问题
 * Firefox和burpsuite设置好代理后，burpsuit无法抓取本地包？
-  解决：手动搜索原因，在csdn[一篇博客](https://blog.csdn.net/weixin_45396639/article/details/104379312?utm_source=app)上看到可能是因为系统设置为不抓取本地包，按照博客在访问`about:config`后,在搜索框内搜索 `network.proxy.allow_hijacking_localhost`，将值改为`true`,问题解决！
+
+解决：手动搜索原因，在csdn[一篇博客](https://blog.csdn.net/weixin_45396639/article/details/104379312?utm_source=app)上看到可能是因为系统设置为不抓取本地包，按照博客在访问`about:config`后,在搜索框内搜索 `network.proxy.allow_hijacking_localhost`，将值改为`true`,问题解决！
 
 
 ## 参考资料
