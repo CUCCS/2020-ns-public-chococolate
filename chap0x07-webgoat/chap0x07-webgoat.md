@@ -42,7 +42,7 @@
 
 ![环境配置完毕！！！](images/environment.png)
 ## 实验过程
-
+****
 ###  Authentication Flaws 认证缺陷
 **1-->Forgot Password**
 
@@ -68,6 +68,7 @@
   
 ![PROCESS.img](images/muti_level_login2.png)
 
+*****
 ###  Access Control Flaws 访问控制缺陷
 **1-->Bypass Business Layer Access Control**
 
@@ -94,6 +95,7 @@
 * 页面进行严格的访问权限的控制以及对访问角色进行权限检查
 * 可以使用session对用户的身份进行判断和控制
 
+****
 ###  Parameter Tampering 参数修改
 **1-->Bypass HTML Field Restrictions**
 
@@ -116,7 +118,7 @@
 **防御修复**
 * 隐藏表单字段
 * 添加服务器端验证
-
+****
 ###  Cross-Site Scripting XSS攻击 
 **1-->Stored XSS Attacks**
 
@@ -140,6 +142,7 @@
 * 过滤输入的数据，对例如：“ ‘ ”，“ “ ”，” < “，” > “，” on* “，script、iframe等危险字符进行严格的检查。这里的输入不仅仅是用户可以直接交互的输入接口，也包括HTTP请求中的Cookie中的变量，HTTP请求头部中的变量等。
 * 对输出到页面的数据进行相应的编码转换，如HTML实体编码、JS编码等。对输出的数据也要检查，数据库里的值有可能会在一个大网站的多处都有输出，即使在输入做了编码等操作，在各处的输出点时也要进行检查。
   
+****
 ###  Injection Flaws 注入攻击
 **1-->Command Injection**
 
@@ -153,6 +156,9 @@
 **防御修复**
 * 不要设置从应用层代码调用操作系统命令
 * 进行输入校验：设置白名单,验证输入只包含字母数字字符，没有其他语法或空白.
+
+
+****
 
 ### Malicious Execution 恶意执行
 **1-->Malicious File Exection**
