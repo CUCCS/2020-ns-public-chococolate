@@ -9,3 +9,4 @@ if you like ,we are friends!  :bowtie:
 * 第七章实验报告
   + [web-Goat](https://github.com/CUCCS/2020-ns-public-chococolate/blob/chap0x07-webgoat/chap0x07-webgoat/chap0x07-webgoat.md)
   + [Juice-Shop](https://github.com/CUCCS/2020-ns-public-chococolate/blob/exp0x07-JuiceShop/chap0x07-JuiceShop/chap0x07-JuiceShop.md)
+* [第九章实验报告](https://github.com/CUCCS/2020-ns-public-chococolate/blob/chap0x09/chap0x09/chap0x09.md)
