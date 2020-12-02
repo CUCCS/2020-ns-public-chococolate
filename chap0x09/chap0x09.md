@@ -66,7 +66,7 @@
 
 ![snort-vde](images/snort-vde.png) 
   
-	*说明：输入指令期间，Debian-2在不断地 ping Debian-1*
+*说明：输入指令期间，Debian-2在不断地 ping Debian-1*
 
 
 
