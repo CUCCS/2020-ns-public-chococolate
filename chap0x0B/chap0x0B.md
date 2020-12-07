@@ -8,15 +8,18 @@
 ### 实验环境
 
 * 拓扑图：
+  
 ![tuopu](images/tuopu.jpg)
+
 * 两台网络设置为NAT模式的KALI，可互通可连外网。
- | Machine | IP | 
- | ---- | ---- |
+  
+  | Machine | IP | 
+  | ---- | ---- |
   | V-KALI | 10.0.2.15
- | A-KALI | 10.0.2.4
+  | A-KALI | 10.0.2.4
 
 * 虚拟机平台：VirtualBox
-* 蜜罐选择：twisted-honeypots(低交互) cowrie(中等交互)
+* 蜜罐选择：twisted-honeypots(低交互),cowrie(中等交互)
 
 ### 实验准备
 **低交互型蜜罐**
@@ -77,6 +80,7 @@ A medium interaction honeypot strategy is the best balance, providing less risk 
     ![log](images/log.png) 
 
 * **nmap扫描**
+	
 	`sudo nmap -sN -P 22 -n vv 10.0.2.15`
 
 	`sudo nmap -sX -P 22 -n -vv  10.0.2.15`
@@ -92,19 +96,25 @@ A medium interaction honeypot strategy is the best balance, providing less risk 
 #### 实验二：cowrie 
 
 + 进入安装目录/var/log/docker-cowrie(你猜为什么是这个路径~上次看日志忘记退回家目录了= =)，开启cowrie服务：
+	
 	`docker run -p 2222:2222 cowrie/cowrie`
-+  在A-KALI上执行：`ssh -p 2222 kk@10.0.2.15`，`ssh -p 2222 root@10.0.2.15`
++  在A-KALI上执行：
++  
++  `ssh -p 2222 kk@10.0.2.15`
++  
++  `ssh -p 2222 root@10.0.2.15`
  
 	==> root用户可以以任意密码登陆成功，而非root用户任何密码都无法登陆成功，登陆信息如下：
     
     ![inf](images/inf.png) 
     
 + root远程登陆成功后，运行多种指令判断是否是进入了蜜罐
+  
 	+ ping [   ]
 	==> 无论ping什么都能通，就很离谱~~
-    ![ping](images/ping.png) 
+	![ping](images/ping.png)
+
     + apt-get update/upgrade
-    
     ==> pemission denied报错,但现在可是root啊(忘记截图了Q^Q)！！
     + echo $PATH
     ![path](images/path.png)
@@ -119,6 +129,7 @@ A medium interaction honeypot strategy is the best balance, providing less risk 
 ### 遇到的问题
 
 * **第一次运行twistd-honeypotd 和cowrie没有任何反应?**
+
 	解决：网络模式不对，不是网络地址转换（NAT),而是NatNetwork!
 
 
