@@ -9,7 +9,7 @@
 
 * 拓扑图：
   
-![tuopu](images/tuopu.jpg)
+	![tuopu](images/tuopu.jpg)
 
 * 两台网络设置为NAT模式的KALI，可互通可连外网。
   
@@ -99,9 +99,9 @@ A medium interaction honeypot strategy is the best balance, providing less risk 
 	
 	`docker run -p 2222:2222 cowrie/cowrie`
 +  在A-KALI上执行：
-+  
+   
 +  `ssh -p 2222 kk@10.0.2.15`
-+  
+   
 +  `ssh -p 2222 root@10.0.2.15`
  
 	==> root用户可以以任意密码登陆成功，而非root用户任何密码都无法登陆成功，登陆信息如下：
